@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Weather.css';
+
 
 import search_icon from "../assets/search.png";
 import clear_icon from "../assets/clear.png";
@@ -10,6 +11,25 @@ import snow_icon from "../assets/snow.png";
 import wind_icon from "../assets/wind.png";
 import humidity_icon from "../assets/humidity.png"
 const Weather = () => {
+
+  const search = async(city)=>{
+    try{
+
+      const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+
+      const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
+      const response = await fetch(URL);
+      const data = await response.json();
+      console.log(data);
+    }catch(error){
+      console.log(error);
+    }
+  }
+
+  useEffect(()=>{
+    search("Gujarat")
+  },[])
+
   return (
     <div className='weather'>
         <div className="search-bar">
