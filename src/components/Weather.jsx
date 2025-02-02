@@ -33,8 +33,8 @@ const Weather = () => {
   }
 
   const search = async(city)=>{
-    try{
 
+    try{
       const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
       const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
@@ -42,14 +42,14 @@ const Weather = () => {
       const data = await response.json();
       console.log(data);
 
-      
+      const Icon = allIcons[data.weather[0].icon];
 
       setWeatherData({
         humidity:data.main.humidity,
         windSpeed:data.wind.speed,
         temperature: Math.floor(data.main.temp),
         location: data.name,
-        icon: clear_icon
+        icon: Icon,
         
       })
     }catch(error){
@@ -59,6 +59,7 @@ const Weather = () => {
 
   useEffect(()=>{
     search("Gujarat")
+  
   },[])
 
   return (
