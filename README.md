@@ -31,3 +31,5 @@ Error Handling - Displays appropriate messages if a city is not found or there i
 🔹 React Hooks (useState, useEffect) - Manages state and API calls
 
 ## OUTPUT
+
+![Image](https://github.com/user-attachments/assets/36d628ee-d215-4b84-8505-04be4db58181)
